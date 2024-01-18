@@ -1,0 +1,129 @@
+body {
+    $polygon-dash: polygon(0px 3px, 15px 3px, 20px 0px, 80px 0px, 85px 3px, 100% 3px, 100% 5px, 85px 5px, 80px 8px, 20px 8px, 15px 5px, 0px 5px);
+    --heading-default-clip-border: #{$polygon-dash};
+
+    --heading-default-font: 'Barlow', 'Noto Sans Japanese', 'Noto Sans Korean';
+    --heading-default-letter-spacing: 1.5px;
+    --heading-default-line-height: 1.5;
+    --heading-default-style: normal;
+    --heading-default-variant: normal;
+
+    --h1-size: 2.285em;
+    --h1-weight: 700;
+    --h1-bottom-border-display: block;
+    --h1-bottom-margin: 35px;
+    --h1-top-margin: 30px;
+
+    --h2-size: 2em;
+    --h2-weight: 600;
+    --h2-bottom-border-display: block;
+    --h2-bottom-margin: 35px;
+    --h2-top-margin: 30px;
+
+    --h3-size: 1.75em;
+    --h3-weight: 600;
+    --h3-bottom-border-display: block;
+    --h3-bottom-margin: 35px;
+    --h3-top-margin: 30px;
+
+    --h4-size: 1.5em;
+    --h4-weight: 600;
+    --h4-bottom-border-display: none;
+    --h4-bottom-margin: 15px;
+    --h4-top-margin: 25px;
+
+    --h5-size: 1.25em;
+    --h5-weight: 500;
+    --h5-bottom-border-display: none;
+    --h5-bottom-margin: 15px;
+    --h5-top-margin: 25px;
+
+    --h6-size: 1.125em;
+    --h6-weight: 500;
+    --h6-bottom-border-display: none;
+    --h6-bottom-margin: 15px;
+    --h6-top-margin: 25px;
+
+    &.theme-dark {
+        --heading-default-h: 0;
+        --heading-default-s: 0%;
+        --heading-default-l: 100%;
+
+        --heading-default-color:
+            hsl(var(--heading-default-h), var(--heading-default-s), var(--heading-default-l));
+        --heading-default-drop-shadow:
+            hsl(var(--heading-default-h), var(--heading-default-s), var(--heading-default-l), 0.65);
+        --heading-default-bottom-border:
+            hsl(var(--heading-default-h), var(--heading-default-s), var(--heading-default-l), 0.90);
+
+        --h1-drop-shadow-size: 3px;
+        --h2-drop-shadow-size: 3px;
+        --h3-drop-shadow-size: 3px;
+        --h4-drop-shadow-size: 3px;
+        --h5-drop-shadow-size: 2px;
+        --h6-drop-shadow-size: 2px;
+    }
+
+    &.theme-light {
+        --heading-default-h: 0;
+        --heading-default-s: 0%;
+        --heading-default-l: 10%;
+
+        --heading-default-color:
+            hsl(var(--heading-default-h), var(--heading-default-s), var(--heading-default-l));
+        --heading-default-drop-shadow:
+            hsl(var(--heading-default-h), var(--heading-default-s), var(--heading-default-l), 0.65);
+        --heading-default-bottom-border:
+            hsl(var(--heading-default-h), var(--heading-default-s), var(--heading-default-l), 0.90);
+
+        --h1-drop-shadow-size: 0;
+        --h2-drop-shadow-size: 0;
+        --h3-drop-shadow-size: 0;
+        --h4-drop-shadow-size: 0;
+        --h5-drop-shadow-size: 0;
+        --h6-drop-shadow-size: 0;
+    }
+}
+
+@for $i from 1 through 6 {
+
+    h#{$i},
+    .HyperMD-header-#{$i}.cm-line {
+        .app-container & {
+            position: relative;
+            padding: 0;
+
+            color: var(--heading-default-color);
+            font-family: var(--heading-default-font);
+            font-size: var(--h#{$i}-size);
+            font-style: var(--heading-default-style);
+            font-variant: var(--heading-default-variant);
+            font-weight: var(--h#{$i}-weight);
+            letter-spacing: var(--heading-default-letter-spacing);
+            line-height: var(--heading-default-line-height);
+            margin: var(--h#{$i}-top-margin) 0 var(--h#{$i}-bottom-margin) !important;
+
+            & > * {
+                color: var(--heading-default-color);
+                font-family: var(--heading-default-font);
+            }
+        }
+
+        .app-container .is-live-preview &,
+        .app-container .markdown-reading-view & {
+            filter: drop-shadow(0 0 var(--h#{$i}-drop-shadow-size) var(--heading-default-drop-shadow));
+            margin: var(--h#{$i}-top-margin) 0 var(--h#{$i}-bottom-margin);
+            
+            &:after {
+                content: "";
+                height: 10px;
+                position: absolute;
+                bottom: -10px;
+                width: 100%;
+                background-color: var(--heading-default-bottom-border);
+                clip-path: var(--heading-default-clip-border);
+                display: var(--h#{$i}-bottom-border-display);
+            }
+        }
+    }
+}
