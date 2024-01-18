@@ -1,0 +1,43 @@
+body {
+    --inline-title-font: 'Barlow', 'Noto Sans Japanese', 'Noto Sans Korean';
+    --inline-title-line-height: 1.2em;
+    --inline-title-size: 3em;
+    --inline-title-style: normal;
+    --inline-title-variant: normal;
+    --inline-title-weight: 700;
+
+    &.theme-dark {
+        --inline-title-color: #fafafa;
+    }
+
+    &.theme-light {
+        --inline-title-color: #000000;
+    }
+}
+
+.inline-title {
+    display: inline-block;
+    letter-spacing: 2px;
+    margin: 0;
+    padding-bottom: 0.5em;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+    z-index: 100;
+
+    color: var(--inline-title-color);
+    font-family: var(--inline-title-font);
+    font-size: var(--inline-title-size);
+    font-style: var(--inline-title-style);
+    font-variant: var(--inline-title-variant);
+    font-weight: var(--inline-title-weight);
+    line-height: var(--inline-title-line-height);
+    
+    .is-live-preview &,
+    .markdown-reading-view & {
+        .theme-dark {
+            filter: drop-shadow(0 0 4px) blur(0);
+        }
+    }
+}
