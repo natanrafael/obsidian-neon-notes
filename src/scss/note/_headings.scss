@@ -16,15 +16,15 @@ body {
 
     --h2-size: 2em;
     --h2-weight: 600;
-    --h2-bottom-border-display: block;
-    --h2-bottom-margin: 35px;
-    --h2-top-margin: 30px;
+    --h2-bottom-border-display: none;
+    --h2-bottom-margin: 30px;
+    --h2-top-margin: 25px;
 
     --h3-size: 1.75em;
     --h3-weight: 600;
-    --h3-bottom-border-display: block;
-    --h3-bottom-margin: 35px;
-    --h3-top-margin: 30px;
+    --h3-bottom-border-display: none;
+    --h3-bottom-margin: 30px;
+    --h3-top-margin: 25px;
 
     --h4-size: 1.5em;
     --h4-weight: 600;
@@ -86,7 +86,6 @@ body {
 }
 
 @for $i from 1 through 6 {
-
     h#{$i},
     .HyperMD-header-#{$i}.cm-line {
         .app-container & {
@@ -108,12 +107,12 @@ body {
                 font-family: var(--heading-default-font);
             }
         }
-
+        
         .app-container .is-live-preview &,
         .app-container .markdown-reading-view & {
             filter: drop-shadow(0 0 var(--h#{$i}-drop-shadow-size) var(--heading-default-drop-shadow));
             margin: var(--h#{$i}-top-margin) 0 var(--h#{$i}-bottom-margin);
-            
+         
             &:after {
                 content: "";
                 height: 10px;

@@ -34,8 +34,8 @@ body {
     font-weight: var(--inline-title-weight);
     line-height: var(--inline-title-line-height);
     
-    .is-live-preview &,
-    .markdown-reading-view & {
+    .app-container .is-live-preview &,
+    .app-container .markdown-reading-view & {
         .theme-dark {
             filter: drop-shadow(0 0 4px) blur(0);
         }
